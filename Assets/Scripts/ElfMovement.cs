@@ -18,10 +18,8 @@ public class ElfMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded())
-        {
+        if (Input.GetKeyDown(KeyCode.Z) && isGrounded())
             jumping = true;
-        }
     }
 
     private void FixedUpdate()

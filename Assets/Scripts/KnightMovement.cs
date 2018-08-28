@@ -18,14 +18,14 @@ public class KnightMovement : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space) && NextToBox())
+        if (Input.GetKeyDown(KeyCode.Z) && NextToBox())
         {
             box = hit.collider.gameObject;
             box.GetComponent<FixedJoint2D>().enabled = true;
             box.GetComponent<FixedJoint2D>().connectedBody = rb;
             box.GetComponent<Rigidbody2D>().mass = 0.0001f;
         }
-        else if (Input.GetKeyDown(KeyCode.Z) && NextToBox())
+        else if (Input.GetKeyDown(KeyCode.X) && NextToBox())
         {
             box.GetComponent<FixedJoint2D>().enabled = false;
             box.GetComponent<Rigidbody2D>().mass = 1;

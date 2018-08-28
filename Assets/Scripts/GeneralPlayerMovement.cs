@@ -13,6 +13,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
     private KnightMovement c1Script;
     private MagicMovement c2Script;
 
+    // A variable to change the color of the Player wen he changes the character
+    private MeshRenderer render;
+
     // Use this for initialization
     void Start ()
     {
@@ -22,6 +25,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
         c0Script = GetComponent<ElfMovement>();
         c1Script = GetComponent<KnightMovement>();
         c2Script = GetComponent<MagicMovement>();
+
+        // The component to switch the color for each character
+        render = GetComponent<MeshRenderer>();
     }
 
     // Update for physics engine
@@ -57,14 +63,17 @@ public class GeneralPlayerMovement : MonoBehaviour {
         switch (GameManager.instance.getCurrentCharacter())
         {
             case 0:
+                render.material.color = Color.green;
                 c2Script.enabled = false;
                 c0Script.enabled = true;
                 break;
             case 1:
+                render.material.color = Color.blue;
                 c0Script.enabled = false;
                 c1Script.enabled = true;
                 break;
             case 2:
+                render.material.color = Color.red;
                 c1Script.enabled = false;
                 c2Script.enabled = true;
                 break;

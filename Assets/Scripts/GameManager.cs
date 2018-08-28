@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     {
         instance = this;
         abilitySelected.text = "Choosen Character " + currentCharacter;
-        abilityExplanation.text = "Elfs can Jump by pressing 'x'";
+        abilityExplanation.text = "Elfs can Jump by pressing 'Z'";
     }
 
     // Update is called once per frame
@@ -35,23 +35,23 @@ public class GameManager : MonoBehaviour {
         {
             case 0:
                 name = "Elf";
-                explanation = "Elfs can Jump by pressing 'UpArrow'";
+                explanation = "Elfs can Jump by pressing 'Z'";
                 break;
             case 1:
                 name = "Dwarft";
-                explanation = "Dwarfts can move heavy blocks by pressing 'SpaceBars'";
+                explanation = "Dwarfts can move heavy blocks by pressing 'Z' and drop them pressing 'X'";
                 break;
             case 2:
                 name = "Wizard";
-                explanation = "Wizards can reveal the darkest secrets by pressing 'x'";
+                explanation = "Wizards can reveal the darkest secrets by pressing 'Z'";
                 break;
             default:
                 name = "No character selected correctly";
-                explanation = "Elfs can Jump by pressing 'x'";
+                explanation = "Elfs can Jump by pressing 'Z'";
                 break;
         }
 
-        abilitySelected.text = "Choosen Character " + name;
+        abilitySelected.text = "Choosen Character: " + name;
         abilityExplanation.text = explanation;
     }
 

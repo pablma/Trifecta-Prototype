@@ -6,12 +6,6 @@ public class MagicMovement : MonoBehaviour {
 
     //int habilityCounter = 0;
     public bool activatePlatform;
-
-	// Use this for initialization
-	void Start ()
-    {
-
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -21,7 +15,7 @@ public class MagicMovement : MonoBehaviour {
 
     void MagicPower()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             if (!activatePlatform)
                 activatePlatform = true;
