@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case 1:
                 name = "Dwarft";
-                explanation = "Dwarfts can move heavy blocks by pressing 'Z' and drop them pressing 'X'";
+                explanation = "Dwarfts can move heavy blocks by pressing 'Z'";
                 break;
             case 2:
                 name = "Wizard";

@@ -13,8 +13,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
     private KnightMovement c1Script;
     private MagicMovement c2Script;
 
+    // A variable for the animations
+    Animator anim;
+
     // A variable to change the color of the Player wen he changes the character
-    private MeshRenderer render;
+    //private MeshRenderer render;
 
     // Use this for initialization
     void Start ()
@@ -26,16 +29,22 @@ public class GeneralPlayerMovement : MonoBehaviour {
         c1Script = GetComponent<KnightMovement>();
         c2Script = GetComponent<MagicMovement>();
 
-        // The component to switch the color for each character
-        render = GetComponent<MeshRenderer>();
+        //// The component to switch the color for each character
+        //render = GetComponent<MeshRenderer>();
+
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        ChangeCharacter();
+        SelectCharacter();
     }
 
     // Update for physics engine
     void FixedUpdate()
     {
-        GeneralMovement();
-        ChangeCharacter();
-        SelectCharacter();
+        GeneralMovement(); 
     }
 
     // General movement of the player
@@ -53,6 +62,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
+            //anim.Play("ChangeCharacter");
             GameManager.instance.CharacterManager();
         }
     }
@@ -63,17 +73,17 @@ public class GeneralPlayerMovement : MonoBehaviour {
         switch (GameManager.instance.getCurrentCharacter())
         {
             case 0:
-                render.material.color = Color.green;
+                anim.Play("Girl");
                 c2Script.enabled = false;
                 c0Script.enabled = true;
                 break;
             case 1:
-                render.material.color = Color.blue;
+                anim.Play("Warrior");
                 c0Script.enabled = false;
                 c1Script.enabled = true;
                 break;
             case 2:
-                render.material.color = Color.red;
+                anim.Play("Wizard");
                 c1Script.enabled = false;
                 c2Script.enabled = true;
                 break;

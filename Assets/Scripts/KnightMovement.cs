@@ -18,41 +18,43 @@ public class KnightMovement : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Z) && NextToBox())
+        if (Input.GetKey(KeyCode.Z) && NextToBox())
         {
             box = hit.collider.gameObject;
             box.GetComponent<FixedJoint2D>().enabled = true;
             box.GetComponent<FixedJoint2D>().connectedBody = rb;
             box.GetComponent<Rigidbody2D>().mass = 0.0001f;
         }
-        else if (Input.GetKeyDown(KeyCode.X) && NextToBox())
+        else if (Input.GetKeyUp(KeyCode.Z) && NextToBox())
         {
             box.GetComponent<FixedJoint2D>().enabled = false;
             box.GetComponent<Rigidbody2D>().mass = 1;
         }
 
-        Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.15f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
-        Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.15f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
+        Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
+        Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
     }
 
     bool NextToBox()
     {
-        try
-        {
+        //try
+        //{
             if (script.right)
-                hit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.15f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
+                hit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
             else
-                hit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.15f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
+                hit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
+
+            Debug.Log(hit.collider.gameObject.tag);
 
             if (hit.collider.gameObject.tag == "Box")
                 return true;
             else
                 return false;
-        }
-        catch
-        {
-            Debug.Log("Variable hit is null");
-        }
+        //}
+        //catch
+        //{
+            //Debug.Log("Variable hit is null");
+        //}
 
 
         return false;
