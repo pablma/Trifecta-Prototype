@@ -18,7 +18,7 @@ public class KnightMovement : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.Z) && NextToBox())
+        if (Input.GetButton("Fire3") && NextToBox())
         {
             box = hit.collider.gameObject;
             box.GetComponent<FixedJoint2D>().enabled = true;

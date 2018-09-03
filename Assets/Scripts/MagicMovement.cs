@@ -15,7 +15,7 @@ public class MagicMovement : MonoBehaviour {
 
     void MagicPower()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetButtonDown("Fire3"))
         {
             if (!activatePlatform)
                 activatePlatform = true;

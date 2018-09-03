@@ -18,7 +18,7 @@ public class ElfMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && isGrounded())
+        if (Input.GetButtonDown("Fire3") && isGrounded())
             jumping = true;
     }
 
