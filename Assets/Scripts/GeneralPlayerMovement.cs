@@ -51,11 +51,18 @@ public class GeneralPlayerMovement : MonoBehaviour {
     void GeneralMovement()
     {
         float h = Input.GetAxis("Horizontal");
-        rb.AddForce(Vector2.right * speed * h);
-        if (h > 0)
-            right = true;
-        else
-            right = false;
+        transform.position = new Vector2(transform.position.x + speed * Time.deltaTime * h, transform.position.y);
+        //rb.AddForce(Vector2.right * speed * h);
+        //if (h == 0)
+        //{
+        //    right = true;
+        //    rb.velocity = new Vector2(0, rb.velocity.y);
+        //}
+        //else
+        //{
+        //    right = false;
+        //}
+
     }
 
     void ChangeCharacter()
