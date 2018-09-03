@@ -25,7 +25,7 @@ public class KnightMovement : MonoBehaviour
             box.GetComponent<FixedJoint2D>().connectedBody = rb;
             box.GetComponent<Rigidbody2D>().mass = 0.0001f;
         }
-        else if (Input.GetKeyUp(KeyCode.Z) && NextToBox())
+        else if (Input.GetButtonUp("Fire2") && NextToBox())
         {
             box.GetComponent<FixedJoint2D>().enabled = false;
             box.GetComponent<Rigidbody2D>().mass = 1;

@@ -67,7 +67,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     void ChangeCharacter()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetButtonDown("Fire2"))
         {
             //anim.Play("ChangeCharacter");
             GameManager.instance.CharacterManager();
